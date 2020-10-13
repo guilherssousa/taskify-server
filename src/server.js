@@ -17,4 +17,4 @@ app.use(cors())
 app.use(express.json()) // To response JSON modules
 app.use(routes)
 
-app.listen(3333)
+app.listen(process.env.PORT || 3333)
