@@ -19,7 +19,7 @@ module.exports = {
             console.log(`[api] O usuário de nome ${name} foi criado.`);
             return res.json(user);
           }
-        console.log('[api] O usuário já existe.');
-        return res.json({ error: 'error' });
+        console.log('[api] O usuário já existe. Logando...');
+        return res.json(user);
     }
 }
