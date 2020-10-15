@@ -1,4 +1,5 @@
 const Group = require('../models/Group.js');
+const User = require('../models/User.js');
 
 module.exports = {
     index: async (req, res) => {
@@ -16,9 +17,13 @@ module.exports = {
                 name,
                 bussiness,
                 members: [id],
-                code: name.substring(0, 3) + id.substring(0, 6)
             })
             
+            var user = await User.findOne({ _id: id });
+            user.groups.push(group._id);
+
+            await user.save();
+
             console.log(`[api] O grupo ${name} foi criado.`);
             return res.json(group);
         } 
