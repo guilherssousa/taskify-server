@@ -9,5 +9,6 @@ routes.get('/:groupId', GroupController.index)
 routes.post('/group/new', GroupController.store)
 routes.post('/group/update', GroupController.update)
 routes.post('/', UserController.store)
+routes.get('/', UserController.index)
 
 module.exports = routes;

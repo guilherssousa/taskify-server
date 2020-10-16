@@ -21,5 +21,15 @@ module.exports = {
           }
         console.log('[api] O usuário já existe. Logando...');
         return res.json(user);
+    },
+    index: async (req, res) => {
+      const { google_id } = req.body;
+      var user = await User.findOne({ google_id });
+
+      if (!user) {
+        return res.json({ error: 'error' })
+      }
+      console.log('[api] Retornando dados de um usuário...');
+      return res.json(user);
     }
 }
