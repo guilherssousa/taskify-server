@@ -35,7 +35,6 @@ const GroupSchema = new Schema({
     }],
     code: {
         type: String,
-        required: true
     }
 });
 
