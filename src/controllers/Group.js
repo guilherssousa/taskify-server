@@ -2,10 +2,6 @@ const Group = require('../models/Group.js');
 const User = require('../models/User.js');
 
 module.exports = {
-    index: async (req, res) => {
-        const { groupId } = req.params;
-        console.log(groupId);
-    },
     store: async (req, res) => {
         const { id, name, bussiness } = req.body;
 
@@ -50,7 +46,7 @@ module.exports = {
         if (!group) {
             return { error: 'error' };
         };
-        
+
         return res.json(group);
     }
 }
