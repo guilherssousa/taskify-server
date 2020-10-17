@@ -47,6 +47,8 @@ module.exports = {
             return { error: 'error' };
         };
 
+        console.log(`[api] Procurando informações de um grupo...`)
+
         return res.json(group);
     }
 }
