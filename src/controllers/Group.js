@@ -33,7 +33,6 @@ module.exports = {
     update: async (req, res) => {
         const { name, groupId, ownerId } = req.body;
 
-        var group = await Group.findOne({_id: groupId});
 
         if (group && group.owner == ownerId) {
             group.name = name
@@ -43,4 +42,15 @@ module.exports = {
 
         return res.json(group);
     },
+    index: async (req, res) => {
+        const { id } = req.params;
+
+        var group = await Group.findOne({_id: id});
+
+        if (!group) {
+            return { error: 'error' };
+        };
+        
+        return res.json(group);
+    }
 }
